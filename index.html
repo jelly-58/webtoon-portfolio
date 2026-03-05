@@ -4,18 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>작가명 | 웹툰 포트폴리오</title>
-  <meta name="description" content="웹툰 작가 작가명의 작품, 소개, 연락처를 한 곳에." />
-
-  <!-- 공유 미리보기 (이미지 넣고 싶으면 나중에 og:image 추가) -->
-  <meta property="og:title" content="작가명 | 웹툰 포트폴리오" />
-  <meta property="og:description" content="작품 / 소개 / 연락" />
-  <meta property="og:type" content="website" />
-
+  <meta name="description" content="웹툰 작가 작가명의 작품/소개/연락." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip" href="#main">본문으로 바로가기</a>
-
   <header class="header">
     <div class="container header__inner">
       <div class="brand">
@@ -26,7 +18,7 @@
         </div>
       </div>
 
-      <nav class="nav" aria-label="주요 메뉴">
+      <nav class="nav">
         <a href="#works">작품</a>
         <a href="#about">소개</a>
         <a href="#contact">연락</a>
@@ -34,89 +26,69 @@
     </div>
   </header>
 
-  <main id="main">
-    <!-- Hero -->
+  <main>
     <section class="hero">
       <div class="container hero__inner">
-        <div class="hero__copy">
-          <h1 class="hero__title">
-            웹툰 작가 <span class="accent">작가명</span>
-          </h1>
-          <p class="hero__desc">
-            작품을 검색하거나 태그로 필터링할 수 있는 포트폴리오 페이지입니다.
-          </p>
+        <div>
+          <h1 class="hero__title">웹툰 작가 <span class="accent">작가명</span></h1>
+          <p class="hero__desc">작품 목록 / 링크 / 연락처를 한 페이지에 정리했습니다.</p>
+
           <div class="hero__cta">
             <a class="btn" href="#works">작품 보기</a>
             <a class="btn btn--ghost" href="#contact">작업 문의</a>
           </div>
 
-          <ul class="hero__meta" aria-label="외부 링크">
+          <ul class="hero__meta">
             <li><a href="#" target="_blank" rel="noreferrer">인스타그램</a></li>
             <li><a href="#" target="_blank" rel="noreferrer">X(트위터)</a></li>
             <li><a href="#" target="_blank" rel="noreferrer">포스타입</a></li>
           </ul>
         </div>
 
-        <div class="hero__card" role="img" aria-label="대표 이미지 영역">
-          <div class="hero__art">
-            <div class="hero__art__badge">대표 이미지</div>
-            <div class="hero__art__hint">나중에 대표 일러스트를 넣을 수 있어요</div>
+        <div class="hero__card">
+          <div class="hero__box">
+            <div class="hero__badge">대표 이미지(선택)</div>
+            <div class="hero__hint">여기는 나중에 대표 일러스트를 넣어도 됩니다.</div>
           </div>
           <div class="hero__stats">
-            <div class="stat">
-              <div class="stat__k">작품</div><div class="stat__v">7</div>
-            </div>
-            <div class="stat">
-              <div class="stat__k">분류</div><div class="stat__v">웹툰</div>
-            </div>
-            <div class="stat">
-              <div class="stat__k">문의</div><div class="stat__v">메일</div>
-            </div>
+            <div class="stat"><div class="stat__k">작품</div><div class="stat__v">7</div></div>
+            <div class="stat"><div class="stat__k">문의</div><div class="stat__v">메일</div></div>
+            <div class="stat"><div class="stat__k">업데이트</div><div class="stat__v">-</div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Works -->
     <section id="works" class="section">
       <div class="container">
         <div class="section__head">
           <h2 class="section__title">작품</h2>
-          <p class="section__desc">검색 + 태그 필터 + 상세보기</p>
+          <p class="section__desc">검색 + 태그 필터 (팝업 없음)</p>
         </div>
 
-        <div class="toolbar" role="region" aria-label="작품 검색 및 필터">
-          <div class="toolbar__left">
-            <label class="field">
-              <span class="field__label">검색</span>
-              <input id="searchInput" class="input" type="search" placeholder="제목/태그로 검색" />
-            </label>
-          </div>
+        <div class="toolbar">
+          <label class="field">
+            <span class="field__label">검색</span>
+            <input id="searchInput" class="input" type="search" placeholder="제목/태그로 검색" />
+          </label>
 
           <div class="toolbar__right">
-            <div class="chips" id="tagChips" aria-label="태그 필터"></div>
+            <div id="tagChips" class="chips"></div>
             <button id="resetBtn" class="btn btn--ghost" type="button">초기화</button>
           </div>
         </div>
 
-        <div id="worksGrid" class="grid" aria-live="polite"></div>
-        <div id="emptyState" class="empty" hidden>
-          조건에 맞는 작품이 없어요. 검색어/태그를 바꿔보세요.
-        </div>
+        <div id="worksGrid" class="grid"></div>
+        <div id="emptyState" class="empty" hidden>조건에 맞는 작품이 없어요.</div>
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" class="section section--alt">
       <div class="container about">
-        <div class="about__left">
+        <div>
           <h2 class="section__title">소개</h2>
-          <p class="about__p">
-            안녕하세요, 웹툰 작가 <b>작가명</b>입니다.
-          </p>
-          <p class="about__p">
-            (여기에 간단한 소개/작업 성향/협업 가능 범위를 적으면 좋아요.)
-          </p>
+          <p class="about__p">안녕하세요, 웹툰 작가 <b>작가명</b>입니다.</p>
+          <p class="about__p">(여기에 2~4줄 소개를 적으면 완성도가 확 올라갑니다.)</p>
 
           <ul class="about__list">
             <li><b>주 작업툴</b>: (예: Clip Studio / Photoshop)</li>
@@ -125,51 +97,37 @@
           </ul>
         </div>
 
-        <div class="about__right">
-          <div class="card">
-            <div class="card__title">링크</div>
-            <div class="card__body">
-              <a class="linkrow" href="#" target="_blank" rel="noreferrer">대표 연재처/플랫폼</a>
-              <a class="linkrow" href="#" target="_blank" rel="noreferrer">SNS</a>
-              <a class="linkrow" href="#" target="_blank" rel="noreferrer">포트폴리오 PDF</a>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card__title">작업 상태</div>
-            <div class="card__body">
-              <div class="pill">가능: 의뢰</div>
-              <div class="pill">가능: 협업</div>
-              <div class="pill pill--off">불가: (원하면 작성)</div>
-            </div>
+        <div class="card">
+          <div class="card__title">링크</div>
+          <div class="card__body">
+            <a class="linkrow" href="#" target="_blank" rel="noreferrer">대표 연재처/플랫폼</a>
+            <a class="linkrow" href="#" target="_blank" rel="noreferrer">SNS</a>
+            <a class="linkrow" href="#" target="_blank" rel="noreferrer">포트폴리오 PDF(선택)</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
-      <div class="container contact">
+      <div class="container">
         <div class="section__head">
           <h2 class="section__title">연락</h2>
-          <p class="section__desc">메일 버튼 클릭 → 메일 앱이 열립니다.</p>
+          <p class="section__desc">메일 버튼 클릭 → 메일 앱 열림</p>
         </div>
 
         <div class="contact__grid">
           <div class="card">
             <div class="card__title">이메일</div>
             <div class="card__body">
-              <p class="muted">아래 이메일을 네 주소로 바꾸면 됩니다.</p>
-              <a class="btn" href="mailto:you@example.com?subject=%5B%EC%9E%91%EC%97%85%EB%AC%B8%EC%9D%98%5D%20%EC%9E%91%EA%B0%80%EB%AA%85">
-                you@example.com
-              </a>
+              <p class="muted">여기 이메일만 바꾸면 됩니다.</p>
+              <a class="btn" href="mailto:you@example.com?subject=%5B%EC%9E%91%EC%97%85%EB%AC%B8%EC%9D%98%5D%20%EC%9E%91%EA%B0%80%EB%AA%85">you@example.com</a>
             </div>
           </div>
 
           <div class="card">
             <div class="card__title">외부 문의 폼(선택)</div>
             <div class="card__body">
-              <p class="muted">Google Form / Tally 링크를 넣을 수 있어요.</p>
+              <p class="muted">Google Form / Tally 링크 넣기</p>
               <a class="btn btn--ghost" href="#" target="_blank" rel="noreferrer">문의 폼 열기</a>
             </div>
           </div>
@@ -185,37 +143,13 @@
             </div>
           </div>
         </div>
+
+        <footer class="footer">
+          <div class="muted">© <span id="year"></span> 작가명</div>
+        </footer>
       </div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="muted">© <span id="year"></span> 작가명. All rights reserved.</div>
-      <div class="footer__links">
-        <a href="#works">작품</a>
-        <a href="#about">소개</a>
-        <a href="#contact">연락</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div id="modal" class="modal" hidden>
-    <div class="modal__backdrop" data-close></div>
-    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal__close" type="button" data-close aria-label="닫기">✕</button>
-      <div class="modal__content">
-        <div class="modal__thumb" aria-hidden="true"></div>
-        <div class="modal__body">
-          <h3 id="modalTitle" class="modal__title"></h3>
-          <p id="modalDesc" class="modal__desc"></p>
-          <div class="modal__meta" id="modalMeta"></div>
-          <div class="modal__actions" id="modalActions"></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script src="script.js"></script>
 </body>
